@@ -1,5 +1,5 @@
 p align="center">
-<img src="./icon.svg" width="96" alt="PrettyLint Logo" />
+<img src="./icon.png" width="96" alt="PrettyLint Logo" />
 
 </p>
 
@@ -9,6 +9,22 @@ p align="center">
   <strong>Visual tool to generate and customize ESLint + Prettier configs.</strong><br/>
   Simplify your setup, avoid syntax errors, and make your code beautiful.
 </p>
+
+---
+
+## Available on VS Code Marketplace
+
+You can install PrettyLint directly from the **Extensions panel** in VS Code:
+
+1. Open **Extensions** (`Ctrl + Shift + X`)
+2. Search for **"PrettyLint"**
+3. Click **Install**
+
+or install manually:
+
+```bash
+code --install-extension 0xnetspecter.pretty-lint
+```
 
 ---
 
