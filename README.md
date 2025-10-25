@@ -1,4 +1,6 @@
-<img src="./icon.png" width="96" style="margin-inline: auto;" alt="PrettyLint Logo" />
+<p align="center">
+  <img src="./icon.png" width="96" alt="PrettyLint Logo" />
+</p>
 
 </p>
 
