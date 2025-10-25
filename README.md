@@ -1,9 +1,8 @@
-p align="center">
-<img src="./icon.png" width="96" alt="PrettyLint Logo" />
+<img src="./icon.png" width="96" style="margin-inline: auto;" alt="PrettyLint Logo" />
 
 </p>
 
-<h1 align="center">PrettyLint 🧹</h1>
+<h1 align="center">PrettyLint</h1>
 
 <p align="center">
   <strong>Visual tool to generate and customize ESLint + Prettier configs.</strong><br/>
