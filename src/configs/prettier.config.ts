@@ -1,0 +1,30 @@
+export const PRETTIER_DEFAULT_CONFIG = {
+  printWidth: 80,
+  tabWidth: 2,
+  useTabs: false,
+  semi: true,
+  singleQuote: true,
+  quoteProps: "as-needed",
+  jsxSingleQuote: false,
+  trailingComma: "es5",
+  bracketSpacing: true,
+  bracketSameLine: false,
+  arrowParens: "always",
+  proseWrap: "preserve",
+  htmlWhitespaceSensitivity: "css",
+  endOfLine: "lf",
+  embeddedLanguageFormatting: "auto",
+  singleAttributePerLine: false,
+
+  experimentalTernaries: false,
+  requirePragma: false,
+  insertPragma: false,
+
+  vueIndentScriptAndStyle: false,
+  rangeStart: 0,
+  rangeEnd: Infinity,
+
+  parser: undefined,
+  filepath: undefined,
+  plugins: [],
+};

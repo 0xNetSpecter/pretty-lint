@@ -1,26 +1,44 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import { getPrettierHtml } from "./webview/getPrettierHtml";
+import { getEslintHtml } from "./webview/getEslintHtml";
+import { generatePrettier, generateEslint } from "./utils/fileGenerator";
+import { PRETTIER_DEFAULT_CONFIG } from "./configs/prettier.config";
+import { ESLINT_RULES_META } from "./configs/eslint.config";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    vscode.commands.registerCommand("pretty-lint.openPrettier", () => {
+      const panel = vscode.window.createWebviewPanel(
+        "prettierConfig",
+        "Prettier Configurator",
+        vscode.ViewColumn.One,
+        { enableScripts: true }
+      );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "pretty-lint" is now active!');
+      panel.webview.html = getPrettierHtml(PRETTIER_DEFAULT_CONFIG);
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('pretty-lint.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from pretty-lint!');
-	});
+      panel.webview.onDidReceiveMessage((msg) => {
+        if (msg.command === "save") generatePrettier(msg.data);
+      });
+    })
+  );
 
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand("pretty-lint.openEslint", () => {
+      const panel = vscode.window.createWebviewPanel(
+        "eslintConfig",
+        "ESLint Configurator",
+        vscode.ViewColumn.One,
+        { enableScripts: true }
+      );
+
+      panel.webview.html = getEslintHtml(ESLINT_RULES_META);
+
+      panel.webview.onDidReceiveMessage((msg) => {
+        if (msg.command === "save") generateEslint(msg.data);
+      });
+    })
+  );
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}

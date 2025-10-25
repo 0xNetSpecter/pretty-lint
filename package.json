@@ -1,6 +1,6 @@
 {
   "name": "pretty-lint",
-  "displayName": "pretty-lint",
+  "displayName": "PrettyLint",
   "description": "Generate ESLint + Prettier configs easily",
   "version": "0.0.1",
   "engines": {
@@ -9,13 +9,20 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:pretty-lint.openPrettier",
+    "onCommand:pretty-lint.openEslint"
+  ],
   "contributes": {
     "commands": [
       {
-        "command": "pretty-lint.helloWorld",
-        "title": "Hello World"
+        "command": "pretty-lint.openPrettier",
+        "title": "Open Prettier Configurator"
+      },
+      {
+        "command": "pretty-lint.openEslint",
+        "title": "Open ESLint Configurator"
       }
     ]
   },
